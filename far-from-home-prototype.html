@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Far From Home - Team 16 Prototype</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .scr{display:none}.scr.on{display:block}
+  .scroll::-webkit-scrollbar{width:0}
+  .chk{width:22px;height:22px;border:2px solid #cbd5e1;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;transition:.15s}
+  .chk.done{background:#0b2f4a;border-color:#0b2f4a}
+  details summary{list-style:none;cursor:pointer}details summary::-webkit-details-marker{display:none}
+  details[open] .arr{transform:rotate(90deg)}
+
+  /* Phone: full screen. Laptop (768px+): sidebar layout. Content/colors same. */
+  body{padding:0}
+  #frame{width:100%;height:100vh;height:100dvh;background:#fff;overflow:hidden;display:flex;flex-direction:column;position:relative}
+  #main{min-height:0}
+  @media(min-width:768px){
+    body{padding:16px}
+    #frame{max-width:1100px;height:min(800px,calc(100vh - 32px));border-radius:1.5rem;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:grid;grid-template-columns:210px 1fr;grid-template-rows:auto minmax(0,1fr) auto}
+    #hdr{grid-column:1/-1;grid-row:1}
+    #nav{grid-column:1;grid-row:2/4;display:flex;flex-direction:column;justify-content:flex-start;gap:6px;padding:14px 12px;border-top:0;border-right:1px solid #e2e8f0}
+    #nav .nb{flex-direction:row;justify-content:flex-start;gap:10px;font-size:14px;padding:12px 14px}
+    #nav .nb span{font-size:18px}
+    #main{grid-column:2;grid-row:2}
+    #ftr{grid-column:2;grid-row:3}
+    .scr{padding:28px!important}
+    #s0{max-width:640px}
+    .gm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+    .gm>*{margin:0!important}
+  }
+</style>
+</head>
+<body class="bg-[#f3f4f6] min-h-screen flex items-center justify-center">
+<div id="frame">
+
+  <!-- Header -->
+  <div id="hdr" class="bg-[#0b2f4a] text-white px-4 pt-3 pb-2.5 border-b-4 border-[#f5a623]">
+    <p class="text-[9px] leading-[13px] text-white/90">Team 16 - K4P26VW | P11 Far From Home | Qamre Alam Siddique (12610972) Team Lead, Aditya Yadav (12610987) R&amp;D Lead, Akshat Awasthi (12611411) Prototype Lead | Mentor: Dishu Maity | Session 2026-27 | BH-5/BH-6 | Africa &amp; Central Asia</p>
+  </div>
+
+  <!-- Screens -->
+  <div id="main" class="flex-1 overflow-y-auto scroll bg-slate-50">
+
+    <!-- 1 WELCOME -->
+    <section class="scr on p-5" id="s0">
+      <div class="rounded-3xl bg-gradient-to-br from-[#0b2f4a] to-[#14527d] text-white p-6 shadow-lg mt-1">
+        <div class="text-4xl mb-3">🌍✈️🏠</div>
+        <h1 class="text-4xl font-extrabold leading-tight">Far From Home</h1>
+        <p class="text-sm text-white/85 mt-2">Welcome BH-5/BH-6 International Students - First Sem - Aug 2026 Batch</p>
+      </div>
+      <p class="font-bold text-[#0b2f4a] mt-5 mb-2 text-sm">Choose your language 🗣️</p>
+      <div class="grid grid-cols-2 gap-3" id="langs">
+        <button class="lang border-2 border-slate-200 bg-white rounded-xl py-3 text-sm font-semibold hover:bg-blue-50 transition">🇬🇧 English</button>
+        <button class="lang border-2 border-slate-200 bg-white rounded-xl py-3 text-sm font-semibold hover:bg-blue-50 transition">🇫🇷 French</button>
+        <button class="lang border-2 border-slate-200 bg-white rounded-xl py-3 text-sm font-semibold hover:bg-blue-50 transition">🇷🇺 Russian</button>
+        <button class="lang border-2 border-slate-200 bg-white rounded-xl py-3 text-sm font-semibold hover:bg-blue-50 transition">🇹🇿 Swahili</button>
+      </div>
+      <button onclick="showScreen(1)" class="w-full mt-5 bg-[#0b2f4a] text-white font-bold rounded-xl py-3.5 shadow-lg active:scale-[.98] transition">Start Journey - BH-5/BH-6 →</button>
+      <div class="mt-4 inline-block bg-orange-50 border border-[#f5a623] text-[#b36b00] text-[11px] font-semibold rounded-full px-3 py-1">✅ Tested with Africa &amp; Central Asia - 32 Survey, 10 Interviews</div>
+      <p class="text-[11px] text-slate-500 mt-3">Based on Persona Samuel Tanzania BH-6 and Alina Uzbekistan BH-5</p>
+    </section>
+
+    <!-- 2 FOOD -->
+    <section class="scr p-5" id="s1">
+      <h2 class="text-xl font-extrabold text-[#0b2f4a]">Food Navigator 🍛🥘🍚</h2>
+      <div class="flex flex-wrap gap-2 mt-3" id="pills">
+        <button class="pill px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 ring-2 ring-green-500">🥬 Veg</button>
+        <button class="pill px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700">Halal ✅</button>
+        <button class="pill px-3 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-700">🌶️ Mild</button>
+        <button class="pill px-3 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-700">💧 Less Oil</button>
+      </div>
+
+      <div class="gm">
+      <div class="bg-white rounded-2xl shadow-md p-4 mt-4 border-l-4 border-green-500">
+        <div class="flex justify-between items-start"><h3 class="font-bold text-slate-800">🍚 Rice &amp; Curd</h3>
+          <div class="flex gap-1"><span class="text-[10px] font-bold bg-green-100 text-green-700 rounded-full px-2 py-0.5">Veg</span><span class="text-[10px] font-bold bg-blue-100 text-blue-700 rounded-full px-2 py-0.5">Halal ✅</span></div></div>
+        <p class="text-sm mt-1">Spice: 🌶️ Mild</p>
+        <p class="text-xs text-green-700 font-semibold mt-0.5">Safe for new students</p>
+        <div class="bg-gray-100 rounded-xl p-2.5 mt-3 text-xs text-slate-700">💬 How to ask: <b>'Kam mirch chahiye'</b> - I want less spice</div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md p-4 mt-3 border-l-4 border-blue-500">
+        <div class="flex justify-between items-start"><h3 class="font-bold text-slate-800">🍗 Chicken Curry</h3>
+          <span class="text-[10px] font-bold bg-blue-100 text-blue-700 rounded-full px-2 py-0.5">Halal ✅</span></div>
+        <p class="text-sm mt-1">Spice: 🌶️🌶️🌶️</p>
+        <p class="text-xs text-orange-600 font-semibold mt-0.5">Ask for mild</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md p-4 mt-3 border-l-4 border-yellow-400">
+        <div class="flex justify-between items-start"><h3 class="font-bold text-slate-800">🍲 Dal Tadka</h3>
+          <span class="text-[10px] font-bold bg-green-100 text-green-700 rounded-full px-2 py-0.5">Veg</span></div>
+        <p class="text-sm mt-1">Spice: 🌶️🌶️</p>
+        <p class="text-xs text-slate-600 mt-0.5">Less oily option</p>
+      </div>
+
+      </div>
+      <div class="mt-4 text-[11px] text-slate-500 bg-white rounded-xl p-3 border border-slate-200">
+        🕒 Mess Timing BH-5 7:30-9:30 etc<br>Source: Mess Staff Interview 21/10/2026</div>
+    </section>
+
+    <!-- 3 CHECKLIST -->
+    <section class="scr p-5" id="s2">
+      <h2 class="text-xl font-extrabold text-[#0b2f4a]">First Week Checklist ✅</h2>
+      <div class="mt-3 bg-white rounded-2xl shadow-md p-4">
+        <div class="flex justify-between text-xs font-bold text-[#0b2f4a]"><span id="pct">40% Complete</span><span id="cnt">2 of 5 done</span></div>
+        <div class="h-2.5 bg-slate-200 rounded-full mt-2 overflow-hidden"><div id="bar" class="h-full bg-[#0b2f4a] rounded-full transition-all duration-300" style="width:40%"></div></div>
+      </div>
+
+      <div class="space-y-3 mt-4 gm" id="list">
+        <div class="item bg-white rounded-2xl shadow-md p-4 flex gap-3 items-start cursor-pointer">
+          <div class="flex-1"><h3 class="font-bold text-sm">📱 SIM Card</h3><p class="text-xs text-slate-600 mt-1">Shop near BH-5 Gate</p><p class="text-xs text-slate-500">⏱️ 4-7 days</p><p class="text-xs text-slate-500">📄 Docs: Aadhar+Passport</p></div><div class="chk">✓</div></div>
+        <div class="item bg-white rounded-2xl shadow-md p-4 flex gap-3 items-start cursor-pointer" data-done="1">
+          <div class="flex-1"><h3 class="font-bold text-sm">🏦 Bank Account</h3><p class="text-xs text-slate-600 mt-1">LPU PNB Branch Uni-Mall</p><p class="text-xs text-slate-500">⏱️ 3 days</p><p class="text-xs text-slate-500">📄 Passport+Visa</p></div><div class="chk done">✓</div></div>
+        <div class="item bg-white rounded-2xl shadow-md p-4 flex gap-3 items-start cursor-pointer">
+          <div class="flex-1"><h3 class="font-bold text-sm">🛂 FRRO</h3><p class="text-xs text-slate-600 mt-1">International Office Block 32</p><p class="text-xs text-slate-500">⏱️ 7 days</p><p class="text-xs text-slate-500">📄 Forms</p></div><div class="chk">✓</div></div>
+        <div class="item bg-white rounded-2xl shadow-md p-4 flex gap-3 items-start cursor-pointer">
+          <div class="flex-1"><h3 class="font-bold text-sm">🩺 Medical Check</h3><p class="text-xs text-slate-600 mt-1">Hospital</p><p class="text-xs text-slate-500">⏱️ 1 day</p></div><div class="chk">✓</div></div>
+        <div class="item bg-white rounded-2xl shadow-md p-4 flex gap-3 items-start cursor-pointer" data-done="1">
+          <div class="flex-1"><h3 class="font-bold text-sm">🪪 LPU ID Card</h3><p class="text-xs text-slate-600 mt-1">Student Services</p><p class="text-xs text-slate-500">⏱️ 1 day</p></div><div class="chk done">✓</div></div>
+      </div>
+
+      <button onclick="showScreen(3)" class="w-full mt-4 border-2 border-[#0b2f4a] text-[#0b2f4a] font-bold rounded-xl py-3 bg-white hover:bg-blue-50 transition">🤝 Get Help from Buddy</button>
+      <p class="text-[11px] text-slate-500 mt-3">💡 Reduces 2 visits to 1 - Research finding</p>
+    </section>
+
+    <!-- 4 BUDDY -->
+    <section class="scr p-5" id="s3">
+      <h2 class="text-xl font-extrabold text-[#0b2f4a]">Buddy Match by Language/Region 🤝</h2>
+      <div class="mt-3 bg-white rounded-xl border border-slate-200 px-3 py-2 flex items-center justify-between text-xs text-slate-600">
+        <span>Language: <b class="text-[#0b2f4a]">All</b></span><span>▾</span></div>
+      <div class="flex gap-2 mt-2 flex-wrap text-[11px] font-semibold">
+        <span class="bg-[#0b2f4a] text-white rounded-full px-3 py-1">All</span>
+        <span class="bg-white border border-slate-200 rounded-full px-3 py-1">Swahili</span>
+        <span class="bg-white border border-slate-200 rounded-full px-3 py-1">Russian</span>
+        <span class="bg-white border border-slate-200 rounded-full px-3 py-1">Uzbek</span>
+      </div>
+
+      <div class="gm">
+      <div class="bg-blue-50 rounded-2xl shadow-md p-4 mt-4">
+        <div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-[#0b2f4a] text-white flex items-center justify-center font-bold">SK</div>
+          <div><h3 class="font-bold">Samuel K.</h3><p class="text-xs text-slate-600">🇹🇿 Tanzania</p></div></div>
+        <div class="flex gap-1.5 mt-3 text-[10px] font-semibold flex-wrap"><span class="bg-white rounded-full px-2 py-0.5">Swahili</span><span class="bg-white rounded-full px-2 py-0.5">English</span><span class="bg-white rounded-full px-2 py-0.5">BH-6 Senior</span><span class="bg-white rounded-full px-2 py-0.5">2 years at LPU</span></div>
+        <p class="text-xs italic text-slate-700 mt-3">"I can help with Halal food and SIM near BH-5"</p>
+        <button class="chat w-full mt-3 bg-[#0b2f4a] text-white text-sm font-bold rounded-xl py-2.5">💬 Chat - Swahili</button>
+      </div>
+
+      <div class="bg-orange-50 rounded-2xl shadow-md p-4 mt-3">
+        <div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-[#f5a623] text-white flex items-center justify-center font-bold">AK</div>
+          <div><h3 class="font-bold">Alina K.</h3><p class="text-xs text-slate-600">🇺🇿 Uzbekistan</p></div></div>
+        <div class="flex gap-1.5 mt-3 text-[10px] font-semibold flex-wrap"><span class="bg-white rounded-full px-2 py-0.5">Russian</span><span class="bg-white rounded-full px-2 py-0.5">Uzbek</span><span class="bg-white rounded-full px-2 py-0.5">Little English</span><span class="bg-white rounded-full px-2 py-0.5">BH-5 Senior</span></div>
+        <p class="text-xs italic text-slate-700 mt-3">"I know Russian help for Bank and FRRO"</p>
+        <button class="chat w-full mt-3 bg-[#f5a623] text-[#0b2f4a] text-sm font-bold rounded-xl py-2.5">💬 Chat - Russian</button>
+      </div>
+      </div>
+      <p class="text-[11px] text-slate-500 mt-4">Matched by Region &amp; Language - Reduces Isolation - Finding 22/10/2026</p>
+    </section>
+
+    <!-- 5 HELP -->
+    <section class="scr p-5" id="s4">
+      <h2 class="text-xl font-extrabold text-[#0b2f4a]">Help Desk 🆘</h2>
+      <div class="space-y-2.5 mt-3 text-[11px] gm">
+        <div class="bg-white rounded-xl shadow p-3"><b class="text-xs text-[#0b2f4a]">🏛️ International Affairs Office</b><br>Block 32 Room 101 - 9am-5pm<br>📞 +91-XXX</div>
+        <div class="bg-white rounded-xl shadow p-3"><b class="text-xs text-[#0b2f4a]">🧑‍💼 BH-5 Warden Mr. Singh</b><br>Ground Floor - 24x7</div>
+        <div class="bg-white rounded-xl shadow p-3"><b class="text-xs text-[#0b2f4a]">🧑‍💼 BH-6 Warden Mr. Kumar</b><br>Office - 24x7</div>
+        <div class="bg-white rounded-xl shadow p-3 border-l-4 border-red-500"><b class="text-xs text-[#0b2f4a]">🏥 LPU Hospital</b><br>Near Uni-Hospital<br>🚨 Emergency 01824-XXX</div>
+      </div>
+      <h3 class="font-bold text-sm mt-5 mb-2">FAQ ❓</h3>
+      <details class="bg-white rounded-xl shadow p-3">
+        <summary class="text-xs font-semibold flex justify-between"><span>Q: Where to get SIM near BH-5?</span><span class="arr transition">▶</span></summary>
+        <p class="text-xs text-slate-600 mt-2">A: Shop near BH-5 Main Gate 200m</p>
+      </details>
+      <div class="mt-4 h-28 rounded-2xl border-2 border-dashed border-slate-300 bg-slate-100 flex items-center justify-center text-xs text-slate-500">🗺️ Map placeholder - BH-5 / BH-6 campus map</div>
+    </section>
+
+    <!-- 6 COMMUNITY -->
+    <section class="scr p-5" id="s5">
+      <h2 class="text-xl font-extrabold text-[#0b2f4a]">Community - BH-5/BH-6 Mixer 🎉</h2>
+      <div class="space-y-3 mt-3 gm">
+        <div class="bg-white rounded-2xl shadow-md p-4"><h3 class="font-bold text-sm">☕ Chai &amp; Culture Evening</h3><p class="text-xs text-slate-600 mt-1">BH-5 Common Room - Friday 6pm - Free Chai</p>
+          <div class="flex justify-between items-center mt-3"><span class="text-xs text-slate-500"><b class="cnt" data-n="12">12</b> Joined</span><button class="join bg-[#0b2f4a] text-white text-xs font-bold rounded-full px-4 py-1.5">Join</button></div></div>
+        <div class="bg-white rounded-2xl shadow-md p-4"><h3 class="font-bold text-sm">🗣️ Language Exchange</h3><p class="text-xs text-slate-600 mt-1">Library Block 37 - Saturday 4pm - Swahili-Hindi, Russian-Hindi</p>
+          <div class="flex justify-between items-center mt-3"><span class="text-xs text-slate-500"><b class="cnt" data-n="8">8</b> Joined</span><button class="join bg-[#0b2f4a] text-white text-xs font-bold rounded-full px-4 py-1.5">Join</button></div></div>
+        <div class="bg-white rounded-2xl shadow-md p-4"><h3 class="font-bold text-sm">🚌 City Tour Jalandhar</h3><p class="text-xs text-slate-600 mt-1">Sunday 9am from BH-6 Gate - SIM Shop, Bank, Market Visit</p>
+          <div class="flex justify-between items-center mt-3"><span class="text-xs text-slate-500"><b class="cnt" data-n="15">15</b> Joined</span><button class="join bg-[#0b2f4a] text-white text-xs font-bold rounded-full px-4 py-1.5">Join</button></div></div>
+        <div class="bg-white rounded-2xl shadow-md p-4"><h3 class="font-bold text-sm">⚽ Sports Mixer BH-5 vs BH-6</h3><p class="text-xs text-slate-600 mt-1">Ground - Saturday 5pm</p>
+          <div class="flex justify-end mt-3"><button class="join bg-[#0b2f4a] text-white text-xs font-bold rounded-full px-4 py-1.5">Join</button></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div id="ftr" class="bg-slate-100 border-t border-slate-200 px-3 py-1.5 text-[9px] text-center text-slate-500 leading-[12px]">CP5 Prototype Ready - Date 10-12 Nov 2026 - Tested with 2 regions - Prototype by Team 16 - Alam, Aditya, Akshat</div>
+
+  <!-- Bottom Nav -->
+  <nav class="grid grid-cols-6 gap-1 p-1.5 bg-white border-t border-slate-200" id="nav">
+    <button class="nb rounded-xl py-1.5 flex flex-col items-center text-[10px] font-semibold"><span class="text-base">👋</span>Welcome</button>
+    <button class="nb rounded-xl py-1.5 flex flex-col items-center text-[10px] font-semibold"><span class="text-base">🍛</span>Food</button>
+    <button class="nb rounded-xl py-1.5 flex flex-col items-center text-[10px] font-semibold"><span class="text-base">✅</span>Checklist</button>
+    <button class="nb rounded-xl py-1.5 flex flex-col items-center text-[10px] font-semibold"><span class="text-base">🤝</span>Buddy</button>
+    <button class="nb rounded-xl py-1.5 flex flex-col items-center text-[10px] font-semibold"><span class="text-base">🆘</span>Help</button>
+    <button class="nb rounded-xl py-1.5 flex flex-col items-center text-[10px] font-semibold"><span class="text-base">🎉</span>Community</button>
+  </nav>
+</div>
+
+<script>
+  const screens=document.querySelectorAll('.scr'), tabs=document.querySelectorAll('.nb');
+  function showScreen(i){
+    screens.forEach((s,k)=>s.classList.toggle('on',k===i));
+    tabs.forEach((t,k)=>{
+      t.classList.toggle('bg-[#0b2f4a]',k===i); t.classList.toggle('text-white',k===i);
+      t.classList.toggle('text-slate-500',k!==i);
+    });
+    document.querySelector('.scroll').scrollTop=0;
+  }
+  tabs.forEach((t,k)=>t.addEventListener('click',()=>showScreen(k)));
+  showScreen(0);
+
+  // language select
+  document.querySelectorAll('.lang').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.lang').forEach(x=>x.classList.remove('border-[#0b2f4a]','bg-blue-50'));
+    b.classList.add('border-[#0b2f4a]','bg-blue-50');
+  }));
+  // food pills
+  document.querySelectorAll('.pill').forEach(p=>p.addEventListener('click',()=>p.classList.toggle('ring-2')));
+  document.querySelectorAll('.pill').forEach((p,k)=>{ if(k>0)p.classList.remove('ring-2'); });
+  document.querySelectorAll('.pill')[0].classList.add('ring-2');
+  // checklist
+  const items=document.querySelectorAll('.item');
+  function upd(){
+    const d=document.querySelectorAll('.chk.done').length, n=items.length;
+    const p=Math.round(d/n*100);
+    document.getElementById('bar').style.width=p+'%';
+    document.getElementById('pct').textContent=p+'% Complete';
+    document.getElementById('cnt').textContent=d+' of '+n+' done';
+  }
+  items.forEach(it=>it.addEventListener('click',()=>{it.querySelector('.chk').classList.toggle('done');upd();}));
+  // join buttons
+  document.querySelectorAll('.join').forEach(b=>b.addEventListener('click',()=>{
+    const c=b.parentElement.querySelector('.cnt'), joined=b.dataset.j==='1';
+    b.dataset.j=joined?'0':'1';
+    b.textContent=joined?'Join':'Joined ✓';
+    b.classList.toggle('bg-green-600',!joined); b.classList.toggle('bg-[#0b2f4a]',joined);
+    if(c)c.textContent=+c.dataset.n+(joined?0:1);
+  }));
+  document.querySelectorAll('.chat').forEach(b=>b.addEventListener('click',()=>{b.textContent='💬 Chat opened…';}));
+</script>
+</body>
+</html>
